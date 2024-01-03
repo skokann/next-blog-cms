@@ -14,12 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Provider>
-        <body>
-          {" "}
+      <body>
+        <Provider>
           <CmsNavbar /> {children}
-        </body>
-      </Provider>
+        </Provider>
+      </body>
     </html>
   );
 }
