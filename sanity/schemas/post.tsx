@@ -10,14 +10,14 @@ export const post = {
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule: Rule) => Rule.required().error("A title is required."),
+      validation: (Rule: Rule) => Rule.required().error("Required"),
     },
     {
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: { source: "title", maxLength: 96 },
-      validation: (Rule: Rule) => Rule.required().error("A slug is required."),
+      options: { source: "title" },
+      validation: (Rule: Rule) => Rule.required().error("Required"),
     },
     {
       name: "publishedAt",
@@ -29,20 +29,17 @@ export const post = {
       name: "excerpt",
       title: "Excerpt",
       type: "text",
-      validation: (Rule: Rule) =>
-        Rule.max(200).warning("Should be under 200 characters."),
+      validation: (Rule: Rule) => Rule.max(200).error("Max 200 characters"),
     },
     {
       name: "body",
       title: "Body",
       type: "array",
       of: [
-        {
-          type: "block",
-        },
+        { type: "block" },
         {
           type: "image",
-          fields: [{ type: "text", name: "alt", title: "Description" }],
+          fields: [{ type: "text", name: "alt", title: "Alt" }],
         },
       ],
     },
